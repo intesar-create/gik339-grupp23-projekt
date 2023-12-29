@@ -6,9 +6,3 @@ CREATE TABLE IF NOT EXISTS movies (
    director VARCHAR(80) NOT NULL,
    color VARCHAR(10) NOT NULL
 );
-CREATE TABLE directors (
-   director_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-   first_name VARCHAR(40),
-   last_name VARCHAR(40),
-   country VARCHAR(80)
-);
