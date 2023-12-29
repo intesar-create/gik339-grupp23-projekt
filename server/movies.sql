@@ -1,6 +1,8 @@
-CREATE TABLE movies (
-   movie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-   title VARCHAR(120),
-   year_released INTEGER,
-   director VARCHAR(80)
+DROP TABLE IF EXISTS movies;
+CREATE TABLE IF NOT EXISTS movies (
+   movie_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+   title VARCHAR(100) NOT NULL,
+   year_released INTEGER NOT NULL,
+   director VARCHAR(80) NOT NULL,
+   color VARCHAR(10) NOT NULL
 );
