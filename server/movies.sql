@@ -4,5 +4,10 @@ CREATE TABLE IF NOT EXISTS movies (
    title VARCHAR(100) NOT NULL,
    year_released INTEGER NOT NULL,
    director VARCHAR(80) NOT NULL,
-   color VARCHAR(10) NOT NULL
 );
+INSERT INTO movies(id,title, year_released,director) VALUES (1,'','','');
+INSERT INTO movies(id,title, year_released,director) VALUES (2,'','','');
+INSERT INTO movies(id,title, year_released,director) VALUES (3,'','','');
+
+
+select * from movies;
