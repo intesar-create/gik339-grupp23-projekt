@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> <!--Få tag på CSS-ramverket-->
+    <link rel="stylesheet" href="style.css">
+    <title>Projektarbete grupp 23</title>
+</head>
+<body>
+    <!-- container som innehåller titeln på hemsidan-->
+    <div class ="container-text mt-2">
+        <h1 class="text-center"><b>Filmregistrering</b></h1>
+        <h3 class= "text-center" >Lägg till nya filmer eller ändra existerande filmer </h3>  
+    </div>
+        <!-- Bootstrap container med top margin -->
+    <div class ="container-form mt-5">
+        <!-- Formulär -->
+        <div class ="container-form mx-auto">
+            <div class = "row ">
+                <div class = "col-5">
+                    <!-- Ett formulär med datainput från användaren, hanteras i Javascript-->
+                    <form id = "resourceForm">
+                    <!-- Inmatningsfält kommer att fyllas dynamiskt via JavaScript -->
+
+                    <!-- Textfält för att skriva in film-titel-->
+                        <label for ="move-title">Filmtitel: </label>
+                        <input type="text" class = "movie-title" placeholder="Enter text">
+
+                        <!-- textfält för att skriva in vilket årtal filmen släpptes-->
+                        <label for ="year-released" > Vilket år filmen släpptes: </label>
+                        <input type ="text" class = "year-released" placeholder="Enter text">
+
+                        <!-- textfält för att skriva in regissör / director -->
+                        <label for ="director" > Regissör för filmen: </label>
+                        <input type ="text" class = "director" placeholder="Enter text">
+
+                        <!--Knapp för att skicka-->
+                        <button type ="submit" class="btn btn-primary">Skicka</button>
+                        
+                        <!--Knapp för att rensa förmuläret-->
+                        <button type ="button" class ="btn btn-secondary" onclick="clearForm()">Rensa fältet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap container med top margin -->
+    <div class ="container mt-2 mx-auto">
+       <!-- Våran lista med grejer från databasen-->
+        <div class = "row mb-3">
+            <div class  = "col">
+                <h5>Lista av våra filmer: </h5>
+                <ul id="resourceList" class="List-group">
+                    <!-- Sedan fyller vi på listan automatiskt via Javascript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+     <!-- Meddelanderuta -->
+     <div class="modal" id="messageModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="messageText"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <!--Grejer som CSS - ramverket Bootstrap behöver  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
