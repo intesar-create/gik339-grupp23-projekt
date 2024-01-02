@@ -9,7 +9,7 @@ function fetchData() {
       if (movies.length > 0) {
 
 
-        const listContainer = document.getElementById('listContainer');
+        const listContainer = document.getElementById('resourceList');
         listContainer.innerHTML = '';
         listContainer.insertAdjacentHTML('beforeend', html);
       }
