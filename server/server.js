@@ -47,3 +47,16 @@ server.get('/movies', (req, res) => {
     });
 });
 
+server.get('/movies/:id', (req, res) => {
+    const id = req.params.id;
+
+    const sql = `SELECT * FROM movies WHERE id=${id}`;
+
+    db.all(sql, (err, rows) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.send(rows[0]);
+        }
+    });
+});
