@@ -24,9 +24,9 @@ server
     });
 
 /* Startar servern på port 3000 */
-server.listen(3000, () => {
+server.listen(5500, () => {
     /* Meddelande för feedback att servern körs */
-    console.log('Server running on http://localhost:3000');
+    console.log('Server running on http://localhost:5500');
 });
 
 /* Hantering av GET-requests till endpointen /users */
