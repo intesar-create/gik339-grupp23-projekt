@@ -23,5 +23,4 @@ resourceForm.addEventListener("submit", handleSubmit);
 function handleSubmit(e) {
   e.preventDefault(); // Förhindra standardbeteendet för formuläret
   console.log(e); // Se till att event-objektet används korrekt
-  // Annan logik för formulärsbehandling här
 }
