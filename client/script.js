@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/movies';
+//const url = 'http://localhost:3000/movies';
 //
 //window.addEventListener('load', fetchData);
 
@@ -27,7 +27,7 @@ const url = 'http://localhost:3000/movies';
 
 
     // Assuming you have an API endpoint to fetch movies data
-    const moviesEndpoint = '/api/movies';
+    const moviesEndpoint = 'http://localhost:3000/movies';
 
     // Function to fetch movies from the server
     async function fetchMovies() {
