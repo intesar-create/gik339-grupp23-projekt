@@ -16,7 +16,10 @@ function fetchData() {
     });
 }
 
-console.log(resourceForm);
+const resourceForm = document.getElementById('resourceForm'); // Hämta formuläret med ID
+
+console.log(resourceForm); // Kontrollera att formuläret har hämtats korrekt
+
 resourceForm.addEventListener("submit", handleSubmit);
 
 function handleSubmit(e) {
@@ -24,3 +27,4 @@ function handleSubmit(e) {
   console.log(e); // Se till att event-objektet används korrekt
   // Annan logik för formulärsbehandling här
 }
+
