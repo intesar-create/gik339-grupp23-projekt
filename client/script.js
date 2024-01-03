@@ -17,3 +17,9 @@ function fetchData() {
 }
 
 console.log(resourceForm);
+resourceForm.addEventListener("submit", handleSubmit);
+
+function handleSubmit(e) {
+  
+  console.log(e);
+}
