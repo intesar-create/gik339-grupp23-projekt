@@ -1,32 +1,32 @@
- // Assuming you have an API endpoint to fetch movies data
-    const moviesEndpoint = 'http://localhost:3000/movies';
+// Assuming you have an API endpoint to fetch movies data
+const moviesEndpoint = 'http://localhost:3000/movies';
 
-    // Function to fetch movies from the server
-    async function fetchMovies() {
-        try {
-            const response = await fetch(moviesEndpoint);
-            const movies = await response.json();
+// Function to fetch movies from the server
+async function fetchMovies() {
+    try {
+        const response = await fetch(moviesEndpoint);
+        const movies = await response.json();
 
-            // Call a function to dynamically populate the movies list
-            populateMoviesList(movies);
-        } catch (error) {
-            console.error('Error fetching movies:', error);
-        }
+        // Call a function to dynamically populate the movies list
+        populateMoviesList(movies);
+    } catch (error) {
+        console.error('Error fetching movies:', error);
     }
+}
 
-    // Function to populate the movies list dynamically
-    function populateMoviesList(movies) {
-        const listContainer = document.getElementById('resourceList');
+// Function to populate the movies list dynamically
+function populateMoviesList(movies) {
+    const listContainer = document.getElementById('resourceList');
 
-        // Clear existing content
-        listContainer.innerHTML = '';
+    // Clear existing content
+    listContainer.innerHTML = '';
 
-        // Iterate through each movie and create a list item
-        movies.forEach(movie => {
-            const listItem = document.createElement('li');
-            listItem.className = `bg-${movie.color}-200 basis-1/4 text-${movie.color}-900 p-2 rounded-md border-2 border-${movie.color}-400 flex flex-col justify-between`;
+    // Iterate through each movie and create a list item
+    movies.forEach(movie => {
+        const listItem = document.createElement('li');
+        listItem.className = `bg-${movie.color}-200 basis-1/4 text-${movie.color}-900 p-2 rounded-md border-2 border-${movie.color}-400 flex flex-col justify-between`;
 
-            listItem.innerHTML = `
+        listItem.innerHTML = `
                 <h3>${movie.titel}</h3>
                 <p>Regissör: ${movie.dirctor}</p>
                 <p>Release Date: ${movie.release_date}</p>
@@ -40,10 +40,10 @@
                 </div>
             `;
 
-            // Append the list item to the container
-            listContainer.appendChild(listItem);
-        });
-    }
+        // Append the list item to the container
+        listContainer.appendChild(listItem);
+    });
+}
 
-    // Call the fetchMovies function to initiate the process
-    fetchMovies();
+// Call the fetchMovies function to initiate the process
+fetchMovies();
