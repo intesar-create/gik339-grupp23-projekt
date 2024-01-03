@@ -3,7 +3,6 @@ const sqlite = require('sqlite3').verbose();
 /* Skapar ny koppling till databas-fil som skapades tidigare. */
 const db = new sqlite.Database('./gik339-projekt.db');
 
-
 /* Importerar npm-paket express och lagrar i variabeln express */
 const express = require('express');
 /* Skapar server med hjälp av express */
