@@ -16,3 +16,4 @@ function fetchData() {
     });
 }
 
+console.log(resourceForm);
