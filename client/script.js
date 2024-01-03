@@ -20,6 +20,6 @@ console.log(resourceForm);
 resourceForm.addEventListener("submit", handleSubmit);
 
 function handleSubmit(e) {
-  
+  e.preventDefault();
   console.log(e);
 }
