@@ -16,6 +16,7 @@ function fetchData() {
     });
 }
 
+const resourceForm = document.getElementById('resourceForm');
 console.log(resourceForm);
 resourceForm.addEventListener("submit", handleSubmit);
 
