@@ -49,6 +49,7 @@
     "escape-html": "^1.0.3",
     "etag": "^1.8.1",
     "expand-template": "^2.0.3",
+    "experss": "^0.0.1-security",
     "express": "^4.18.2",
     "file-uri-to-path": "^1.0.0",
     "finalhandler": "^1.2.0",
