@@ -47,3 +47,32 @@ function populateMoviesList(movies) {
 
 // Call the fetchMovies function to initiate the process
 fetchMovies();
+
+userForm.addEventListener('submit', handleSubmit);
+
+function handleSubmit(e) {
+    e.preventDefault();
+    const serverUserObject = {
+        titel: '',
+        dirctor: '',
+        release_date: '',
+        color: ''
+    };
+    serverUserObject.titel = movieForm.titel.value;
+    serverUserObject.dirctor = movieForm.dirctor.value;
+    serverUserObject.release_date = movieForm.release_date.value;
+    serverUserObject.color = movieForm.color.value;
+
+    const request = new Request(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(serverUserObject)
+    });
+
+    fetch(request).then((response) => {
+        fetchData();
+        userForm.reset();
+    });
+}
