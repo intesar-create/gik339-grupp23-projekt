@@ -11,7 +11,7 @@ INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (3,'Time to Hunt'
 INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (1,'The Pirates: The Last Royal Treasure','Jeong-hoon Kim',2022,'green');
 INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (4,'Forrest Gump','Robert Zemeckis',1994,'green');
 INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (5,'Finding Nemo','Andrew Stanton ,Lee Unkrich',2003,'purple');
-INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (1,'Inside out','Pete Docter, Ronnie Del Carmen',2015,'green');
+INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (6,'Inside out','Pete Docter, Ronnie Del Carmen',2015,'green');
 
 
 select * from movies;
