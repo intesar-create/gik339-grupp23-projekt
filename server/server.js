@@ -59,3 +59,32 @@ server.get('/movies/:id', (req, res) => {
         }
     });
 });
+
+server.post('/movies/:id', (req, res) => {
+    const id = req.params.id;
+
+    const sql = `SELECT * FROM movies WHERE id=${id}`;
+
+    db.all(sql, (err, rows) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.send(rows[0]);
+        }
+    });
+});
+
+server.put('/movies/:id', (req, res) => {
+    const id = req.params.id;
+
+    const sql = `SELECT * FROM movies WHERE id=${id}`;
+
+    db.all(sql, (err, rows) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.send(rows[0]);
+        }
+    });
+});
+
