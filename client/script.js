@@ -72,7 +72,7 @@ function handleSubmit(e) {
     });
 
     fetch(request).then((response) => {
-        fetchData();
+        fetchMovies();
         userForm.reset();
     });
 }
