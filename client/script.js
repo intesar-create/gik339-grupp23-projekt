@@ -48,7 +48,7 @@ function populateMoviesList(movies) {
 // Call the fetchMovies function to initiate the process
 fetchMovies();
 
-userForm.addEventListener('submit', handleSubmit);
+movieForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
     e.preventDefault();
@@ -73,6 +73,6 @@ function handleSubmit(e) {
 
     fetch(request).then((response) => {
         fetchMovies();
-        userForm.reset();
+        movieForm.reset();
     });
 }
