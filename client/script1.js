@@ -2,7 +2,7 @@ const url = 'http://localhost:3000/movies';
 
 window.addEventListener('load', fetchData);
 
-function fetchData() {
+function fetchMovies() {
     fetch(url)
         .then((result) => result.json())
         .then((movies) => {
@@ -60,7 +60,7 @@ function handleSubmit(e) {
     });
 
     fetch(request).then((response) => {
-        fetchData();
+        fetchMovies();
         userForm.reset();
     });
 }
