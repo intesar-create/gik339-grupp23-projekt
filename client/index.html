@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#" />
     <!--Få tag på CSS-ramverket-->
     <link rel="stylesheet" href="style.css">
-     <!--linker som vi behöver  -->
-     <script src="script.js"></script>
+    <!--linker som vi behöver  -->
+    <script src="script.js"></script>
     <title>Projektarbete grupp 23</title>
 </head>
 
@@ -39,6 +40,19 @@
                         <!-- textfält för att skriva in regissör / director -->
                         <label for="director"> Regissör för filmen: </label>
                         <input type="text" class="director" placeholder="Enter text">
+
+                        <!-- textfält för att lägga till färg / director -->
+                        <label for="color"> Favorit färg: </label>
+                        <select class="form-select" class="color">
+                            <option value="secondary">Grå</option>
+                            <option value="success">Grön</option>
+                            <option value="primary">Blå</option>
+                            <option value="info">Ljus blå</option>
+                            <option value="danger">Röd</option>
+                            <option value="warning">Gul</option>
+                            <option value="light">Vit</option>
+                            <option value="dark">Svart</option>
+                        </select>
 
                         <!--Knapp för att skicka-->
                         <button type="submit" class="btn btn-primary">Skicka</button>
@@ -81,7 +95,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    
+
 </body>
 
 </html>
