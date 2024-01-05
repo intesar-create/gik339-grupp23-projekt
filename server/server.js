@@ -54,7 +54,7 @@ server.post('/movies', (req, res) => {
             console.log(err);
             res.status(500).send(err);
         } else {
-            res.send('Användaren sparades');
+            res.send('Filmen sparades');
         }
     });
 });
@@ -64,9 +64,9 @@ server.put('/movies', (req, res) => {
 
     const id = bodyData.id;
     const movie = {
-        movietitle: bodyData.movietitle,
+        title: bodyData.title,
         director: bodyData.director,
-        yearreleased: bodyData.yearreleased,
+        release_date: bodyData.release_date,
         color: bodyData.color
     };
 
