@@ -35,6 +35,22 @@ function fetchData() {
             }
         });
 }
+//Som sätter nuvarande bil, när vi klickar på "Ändra" knappen så blir alla fält ifyllda.
+function setCurrentMovie(id) {
+    console.log("current", id);
+    fetch(`${url}/${id}`)
+        .then((result) => result.json())
+        .then((movie) => {
+            console.log(movie);
+            movieForm.titel.value = movie.titel;
+            movieForm.dirctor.value = movie.dirctor;
+            movieForm.release_date.value = movie.release_date;
+            movieForm.color.value = movie.color;
+
+            localStorage.setItem("currentId", movie.id);
+        });
+}
+
 
 movieForm.addEventListener('submit', handleSubmit);
 
