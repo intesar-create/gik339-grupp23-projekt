@@ -12,8 +12,8 @@ function fetchData() {
                     html += `
         <li
           class="bg-${movie.color}-200 basis-1/4 text-${movie.color}-900 p-2 rounded-md border-2 border-${movie.color}-400 flex flex-col justify-between">
-          <h3>${movie.titel} ${movie.dirctor}</h3>
-          <p>Vilket år filmen släpptes: ${movie.release_date}</p>
+          <h3> Titel: ${movie.titel} Regissör: ${movie.dirctor}</h3>
+          <p> År: ${movie.release_date}</p>
           <div>
             <button
               class="rounded-md bg-white/50 p-1 text-sm"
