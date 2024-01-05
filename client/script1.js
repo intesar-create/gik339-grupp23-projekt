@@ -36,20 +36,20 @@ function fetchMovies() {
         });
 }
 
-userForm.addEventListener('submit', handleSubmit);
+movieForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
     e.preventDefault();
     const serverUserObject = {
-        firstName: '',
-        lastName: '',
-        username: '',
+        movietitle: '',
+        director: '',
+        yearreleased: '',
         color: ''
     };
-    serverUserObject.firstName = userForm.firstName.value;
-    serverUserObject.lastName = userForm.lastName.value;
-    serverUserObject.username = userForm.username.value;
-    serverUserObject.color = userForm.color.value;
+    serverUserObject.movietitle = movieForm.movietitle.value;
+    serverUserObject.director = movieForm.director.value;
+    serverUserObject.yearreleased = movieForm.yearreleased.value;
+    serverUserObject.color = movieForm.color.value;
 
     const request = new Request(url, {
         method: 'POST',
@@ -60,7 +60,12 @@ function handleSubmit(e) {
     });
 
     fetch(request).then((response) => {
+<<<<<<< HEAD
         fetchMovies();
         userForm.reset();
+=======
+        fetchData();
+        movieForm.reset();
+>>>>>>> 730da631d1abd26f99e3c21d1f746e39fe9e4a66
     });
 }
