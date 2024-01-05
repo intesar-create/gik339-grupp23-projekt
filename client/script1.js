@@ -12,8 +12,8 @@ function fetchData() {
                     html += `
         <li
           class="bg-${movie.color}-200 basis-1/4 text-${movie.color}-900 p-2 rounded-md border-2 border-${movie.color}-400 flex flex-col justify-between">
-          <h3>${movie.movietitle} ${movie.director}</h3>
-          <p>Vilket år filmen släpptes: ${movie.yearreleased}</p>
+          <h3>${movie.titel} ${movie.dirctor}</h3>
+          <p>Vilket år filmen släpptes: ${movie.release_date}</p>
           <div>
             <button
               class="rounded-md bg-white/50 p-1 text-sm"
@@ -41,14 +41,14 @@ movieForm.addEventListener('submit', handleSubmit);
 function handleSubmit(e) {
     e.preventDefault();
     const serverUserObject = {
-        movietitle: '',
-        director: '',
-        yearreleased: '',
+        titel: '',
+        dirctor: '',
+        release_date: '',
         color: ''
     };
-    serverUserObject.movietitle = movieForm.movietitle.value;
-    serverUserObject.director = movieForm.director.value;
-    serverUserObject.yearreleased = movieForm.yearreleased.value;
+    serverUserObject.titel = movieForm.titel.value;
+    serverUserObject.dirctor = movieForm.dirctor.value;
+    serverUserObject.release_date = movieForm.release_date.value;
     serverUserObject.color = movieForm.color.value;
 
     const request = new Request(url, {
