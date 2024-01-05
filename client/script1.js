@@ -2,7 +2,7 @@ const url = 'http://localhost:3000/movies';
 
 window.addEventListener('load', fetchData);
 
-function fetchMovies() {
+function fetchData() {
     fetch(url)
         .then((result) => result.json())
         .then((movies) => {
@@ -36,20 +36,20 @@ function fetchMovies() {
         });
 }
 
-movieForm.addEventListener('submit', handleSubmit);
+userForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
     e.preventDefault();
     const serverUserObject = {
-        movietitle: '',
-        director: '',
-        yearreleased: '',
+        firstName: '',
+        lastName: '',
+        username: '',
         color: ''
     };
-    serverUserObject.movietitle = movieForm.movietitle.value;
-    serverUserObject.director = movieForm.director.value;
-    serverUserObject.yearreleased = movieForm.yearreleased.value;
-    serverUserObject.color = movieForm.color.value;
+    serverUserObject.firstName = userForm.firstName.value;
+    serverUserObject.lastName = userForm.lastName.value;
+    serverUserObject.username = userForm.username.value;
+    serverUserObject.color = userForm.color.value;
 
     const request = new Request(url, {
         method: 'POST',
@@ -60,12 +60,7 @@ function handleSubmit(e) {
     });
 
     fetch(request).then((response) => {
-<<<<<<< HEAD
-        fetchMovies();
-        userForm.reset();
-=======
         fetchData();
-        movieForm.reset();
->>>>>>> 730da631d1abd26f99e3c21d1f746e39fe9e4a66
+        userForm.reset();
     });
 }
