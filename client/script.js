@@ -1,4 +1,4 @@
-// Assuming you have an API endpoint to fetch movies data
+//  API endpoint to fetch movies data
 const moviesEndpoint = 'http://localhost:3000/movies';
 
 // Function to fetch movies from the server
@@ -47,3 +47,32 @@ function populateMoviesList(movies) {
 
 // Call the fetchMovies function to initiate the process
 fetchMovies();
+
+movieForm.addEventListener('submit', handleSubmit);
+
+function handleSubmit(e) {
+    e.preventDefault();
+    const serverUserObject = {
+        titel: '',
+        dirctor: '',
+        release_date: '',
+        color: ''
+    };
+    serverUserObject.titel = movieForm.titel.value;
+    serverUserObject.dirctor = movieForm.dirctor.value;
+    serverUserObject.release_date = movieForm.release_date.value;
+    serverUserObject.color = movieForm.color.value;
+
+    const request = new Request(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(serverUserObject)
+    });
+
+    fetch(request).then((response) => {
+        fetchMovies();
+        movieForm.reset();
+    });
+}
