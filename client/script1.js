@@ -52,6 +52,15 @@ function setCurrentMovie(id) {
         });
 }
 
+//Funktion för att ta bort, går efter ID.
+function deleteMovie(id) {
+    console.log('delete', id);
+    fetch(`${url}/${id}`, { method: 'DELETE' })
+        .then((result) => {
+            messageFunction("Filmen är borttagen!", 'warning');
+            fetchData();
+        });
+}
 
 movieForm.addEventListener('submit', handleSubmit);
 
