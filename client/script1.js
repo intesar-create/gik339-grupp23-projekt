@@ -22,7 +22,7 @@ function fetchData() {
               class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2 onclick="setCurrentMovie('${movie.id}')">
               Ändra
             </button>
-            <button class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2">
+            <button class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2  onclick="deleteMovie(${movie.id})">
               Ta bort
             </button>
           </div>
@@ -55,12 +55,12 @@ function setCurrentMovie(id) {
 function deleteMovie(id) {
     console.log('delete', id);
     fetch(`${url}/${id}`, { method: 'DELETE' })
-      .then((result) => {
-        messageFunction("Filmen är borttagen!", 'warning');
-        fetchData(); // Anropa fetchData() eller motsvarande funktion för att uppdatera filmdata efter borttagning.
-      });
-  }
-  
+        .then((result) => {
+            messageFunction("Filmen är borttagen!", 'warning');
+            fetchData(); // Anropa fetchData() eller motsvarande funktion för att uppdatera filmdata efter borttagning.
+        });
+}
+
 
 //Funktion för att ta bort, går efter ID.
 function deleteMovie(id) {
