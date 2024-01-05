@@ -1,5 +1,5 @@
 const sqlite = require('sqlite3').verbose();
-const db = new sqlite.Database('./gik339-projek.db');
+const db = new sqlite.Database('');
 
 const express = require('express');
 const server = express();
