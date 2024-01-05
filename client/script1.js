@@ -51,6 +51,16 @@ function setCurrentMovie(id) {
             localStorage.setItem("currentId", movie.id);
         });
 }
+// Funktion för att ta bort en film, går efter ID.
+function deleteMovie(id) {
+    console.log('delete', id);
+    fetch(`${url}/${id}`, { method: 'DELETE' })
+      .then((result) => {
+        messageFunction("Filmen är borttagen!", 'warning');
+        fetchData(); // Anropa fetchData() eller motsvarande funktion för att uppdatera filmdata efter borttagning.
+      });
+  }
+  
 
 //Funktion för att ta bort, går efter ID.
 function deleteMovie(id) {
