@@ -47,7 +47,7 @@ server.get('/movies/:id', (req, res) => {
 
 server.post('/movies', (req, res) => {
     const movie = req.body;
-    const sql = `INSERT INTO movies(title, director, release_date, color) VALUES (?,?,?,?)`;
+    const sql = `INSERT INTO movies(title,dirctor , release_date, color) VALUES (?,?,?,?)`;
 
     db.run(sql, Object.values(movie), (err) => {
         if (err) {
@@ -64,8 +64,8 @@ server.put('/movies', (req, res) => {
 
     const id = bodyData.id;
     const movie = {
-        title: bodyData.title,
-        director: bodyData.director,
+        titel: bodyData.titel,
+        dirctor: bodyData.dirctor,
         release_date: bodyData.release_date,
         color: bodyData.color
     };
