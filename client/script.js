@@ -1,4 +1,4 @@
-// Assuming you have an API endpoint to fetch movies data
+//  API endpoint to fetch movies data
 const moviesEndpoint = 'http://localhost:3000/movies';
 
 // Function to fetch movies from the server
