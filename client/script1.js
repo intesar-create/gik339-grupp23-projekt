@@ -19,10 +19,10 @@ function fetchData() {
             <button
               class="rounded-md bg-white/50 p-1 text-sm"
               <button
-              class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2 onclick="setCurrentMovie('${movie.id}')">
+              class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2" onclick="setCurrentMovie('${movie.id}')">
               Ändra
             </button>
-            <button class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2 type="button" onclick="deleteMovie(${movie.id})">
+            <button class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2" type="button" onclick="deleteMovie(${movie.id})">
               Ta bort
             </button>
           </div>
@@ -62,15 +62,7 @@ function deleteMovie(id) {
 }
 
 
-//Funktion för att ta bort, går efter ID.
-function deleteMovie(id) {
-    console.log('delete', id);
-    fetch(`${url}/${id}`, { method: 'DELETE' })
-        .then((result) => {
-            messageFunction("Filmen är borttagen!", 'warning');
-            fetchData();
-        });
-}
+
 
 movieForm.addEventListener('submit', handleSubmit);
 
