@@ -22,7 +22,7 @@ function fetchData() {
               class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2 onclick="setCurrentMovie('${movie.id}')">
               Ändra
             </button>
-            <button class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2  onclick="deleteMovie(${movie.id})">
+            <button class="border border-${movie.color}-300 hover:bg-white/100 rounded-md bg-white/50 p-1 text-sm mt-2 type="button" onclick="deleteMovie(${movie.id})">
               Ta bort
             </button>
           </div>
