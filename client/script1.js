@@ -87,6 +87,11 @@ function handleSubmit(e) {
     serverUserObject.release_date = movieForm.release_date.value;
     serverUserObject.color = movieForm.color.value;
 
+    const id = localStorage.getItem("currentId");
+    if (id) {
+        serverUserObject.id = id;
+    }
+
     const request = new Request(url, {
         method: 'POST',
         headers: {
