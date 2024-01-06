@@ -94,6 +94,7 @@ function handleSubmit(e) {
 
     fetch(request).then((response) => {
         fetchData();
+        localStorage.removeItem("currentId");
         movieForm.reset();
     });
 }
