@@ -76,28 +76,26 @@ movieForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
     e.preventDefault();
-    const serverUserObject = {
+    const serverMovieObject = {
         titel: '',
         dirctor: '',
         release_date: '',
         color: ''
     };
-    serverUserObject.titel = movieForm.titel.value;
-    serverUserObject.dirctor = movieForm.dirctor.value;
-    serverUserObject.release_date = movieForm.release_date.value;
-    serverUserObject.color = movieForm.color.value;
+    serverMovieObject.titel = movieForm.titel.value;
+    serverMovieObject.dirctor = movieForm.dirctor.value;
+    serverMovieObject.release_date = movieForm.release_date.value;
+    serverMovieObject.color = movieForm.color.value;
 
     const id = localStorage.getItem("currentId");
-    if (id) {
-        serverUserObject.id = id;
-    }
+    if (id) serverMovieObject.id = id;
 
     const request = new Request(url, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(serverUserObject)
+        body: JSON.stringify(serverMovieObject)
     });
 
     fetch(request).then((response) => {
