@@ -36,7 +36,7 @@ function fetchData() {
             }
         });
 }
-//Som sätter nuvarande bil, när vi klickar på "Ändra" knappen så blir alla fält ifyllda.
+// när vi klickar på "Ändra" knappen så blir alla fält ifyllda .
 function setCurrentMovie(id) {
     console.log("current", id);
     fetch(`${url}/${id}`)
