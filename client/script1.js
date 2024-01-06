@@ -83,9 +83,10 @@ function handleSubmit(e) {
     if (id) serverMovieObject.id = id;
 
 
-    const method = serverMovieObject.id ? "PUT" : "POST";
+
     const request = new Request(url, {
-        method: 'POST',
+
+        method: serverMovieObject.id ? 'PUT' : 'POST',
         headers: {
             'content-type': 'application/json'
         },
