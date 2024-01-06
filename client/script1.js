@@ -90,6 +90,8 @@ function handleSubmit(e) {
     const id = localStorage.getItem("currentId");
     if (id) serverMovieObject.id = id;
 
+
+    const method = serverMovieObject.id ? "PUT" : "POST";
     const request = new Request(url, {
         method: 'POST',
         headers: {
