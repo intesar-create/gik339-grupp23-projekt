@@ -43,10 +43,10 @@ function setCurrentMovie(id) {
         .then((result) => result.json())
         .then((movie) => {
             console.log(movie);
-            movieForm.titel.value = movie.titel;
-            movieForm.dirctor.value = movie.dirctor;
-            movieForm.release_date.value = movie.release_date;
-            movieForm.color.value = movie.color;
+            movieForm.Titel.value = movie.titel;
+            movieForm.Dirctor.value = movie.dirctor;
+            movieForm.Release_date.value = movie.release_date;
+            movieForm.Color.value = movie.color;
 
             localStorage.setItem("currentId", movie.id);
         });
@@ -74,10 +74,10 @@ function handleSubmit(e) {
         release_date: '',
         color: ''
     };
-    serverMovieObject.titel = movieForm.titel.value;
-    serverMovieObject.dirctor = movieForm.dirctor.value;
-    serverMovieObject.release_date = movieForm.release_date.value;
-    serverMovieObject.color = movieForm.color.value;
+    serverMovieObject.titel = movieForm.Titel.value;
+    serverMovieObject.dirctor = movieForm.Dirctor.value;
+    serverMovieObject.release_date = movieForm.Release_date.value;
+    serverMovieObject.color = movieForm.Color.value;
 
     const id = localStorage.getItem("currentId");
     if (id) serverMovieObject.id = id;
@@ -93,7 +93,13 @@ function handleSubmit(e) {
         body: JSON.stringify(serverMovieObject)
     });
 
+    const message =
+        method === "PUT"
+            ? `Filmen ${movieForm.Titel.value} har ändrats`
+            : `Filmen ${movieForm.Titel.value} har lagts till`;
 
+    //Kallar på messageFunction som hanterar meddelandet vid förändring av resurs
+    messageFunction(message, 'success');
 
 
 
