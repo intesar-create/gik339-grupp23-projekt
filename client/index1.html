@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="#" />
+    <title>Projektarbete grupp 23</title>
+</head>
+
+<body class="min-h-[100vh] bg-teal-900">
+    <header class="mt-10 text-center">
+        <h1 class="text-3xl">Projektarbete grupp 23</h1>
+    </header>
+    <div class="container-text mt-2">
+        <h1 class="text-center"><b>Filmregistrering</b></h1>
+        <h3 class="text-center">Lägg till nya filmer eller ändra existerande filmer </h3>
+    </div>
+    <main class="mt-10">
+        <div class="w-[55rem] mx-auto mt-8 bg-white/25 p-3 rounded-lg">
+            <form id="movieForm">
+                <div class="form-control my-4 mx-auto flex w-3/4 items-center">
+                    <label for="titel" class="mr-4 text-xl w-40">Filmtitel</label>
+                    <input class="text-slate-800 p-1 flex-1 rounded-md" type="text" name="titel" placeholder="Barbie" required/>
+                </div>
+                <div class="form-control my-4 mx-auto flex w-3/4 items-center">
+                    <label for="dirctor" class="mr-4 text-xl w-40">Regissör för filmen</label>
+                    <input class="text-slate-800 p-1 flex-1 rounded-md" type="text" name="dirctor"placeholder="Greta Gerwig" required />
+                </div>
+                <div class="form-control my-4 mx-auto flex w-3/4 items-center">
+                    <label for="release_date" class="mr-4 text-xl w-40">Vilket år filmen släpptes</label>
+                    <input class="text-slate-800 p-1 flex-1 rounded-md" type="text" name="release_date"placeholder="2023" required />
+                </div>
+                <div class="form-control my-4 mx-auto flex w-3/4 items-center">
+                    <label for="color" class="mr-4 text-xl w-40">Favoritfärg</label>
+                    <select class="bg-white text-slate-800 p-1 flex-1 rounded-md" name="color">
+                        <option value="purple">Lila</option>
+                        <option value="green">Grön</option>
+                        <option value="gray">Grå</option>
+                        <option value="red">Röd</option>
+                        <option value="yellow">Gul</option>
+                    </select>
+                </div>
+                <div class="form-control my-4 mx-auto flex w-3/4 items-center justify-end gap-4">
+                    <button class="px-4 py-1 bg-slate-200 text-slate-800 rounded-md hover:bg-slate-300" type="reset"
+                        name="clearMovieForm">
+                        Rensa fältet
+                    </button>
+                    <button class="px-4 py-1 bg-slate-200 text-slate-800 rounded-md hover:bg-slate-300" type="submit"
+                        name="submitMovieForm">
+                        Skicka
+                    </button>
+                    
+                </div>
+            </form>
+        </div>
+        <div id="listContainer"></div>
+    </main>
+
+    <script src="script1.js"></script>
+</body>
+
+</html>
