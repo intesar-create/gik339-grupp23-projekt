@@ -99,3 +99,14 @@ function handleSubmit(e) {
         movieForm.reset();
     });
 }
+
+function openModal(message) {
+    // Öppna modalrutan och sätt det dynamiska meddelandet
+    app.modalOpen = true;
+    app.modalMessage = message;
+}
+
+function closeModal() {
+    // Stäng modalrutan
+    app.modalOpen = false;
+}
