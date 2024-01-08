@@ -93,13 +93,7 @@ function handleSubmit(e) {
         body: JSON.stringify(serverMovieObject)
     });
 
-    const message =
-        method === "PUT"
-            ? `Filmen ${movieForm.titel.value} har ändrats`
-            : `Filmen ${movieform.titel.value} har lagts till`;
 
-    //Kallar på messageFunction som hanterar meddelandet vid förändring av resurs
-    messageFunction(message, 'success');
 
 
 
