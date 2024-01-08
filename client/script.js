@@ -93,7 +93,13 @@ function handleSubmit(e) {
         body: JSON.stringify(serverMovieObject)
     });
 
+    const message =
+        method === "PUT"
+            ? `Filmen ${movieForm.titel.value} har ändrats`
+            : `Filmen ${movieform.titel.value} har lagts till`;
 
+    //Kallar på messageFunction som hanterar meddelandet vid förändring av resurs
+    messageFunction(message, 'success');
 
 
 
@@ -106,3 +112,11 @@ function handleSubmit(e) {
 
 //Funktion SweetAlert för att visa upp när en resurs ändras på något sätt.
 
+function messageFunction(message, type) {
+    Swal.fire({
+        icon: type,
+        title: message,
+        showConfirmButton: false,
+        timer: 2000 // Tid i millisekunder (justera efter behov)
+    });
+}
