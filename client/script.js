@@ -100,16 +100,4 @@ function handleSubmit(e) {
     });
 }
 
-<<<<<<< HEAD
-=======
-function openModal(message) {
-    // Öppna modalrutan och sätt det dynamiska meddelandet
-    app.modalOpen = true;
-    app.modalMessage = message;
-}
 
-function closeModal() {
-    // Stäng modalrutan
-    app.modalOpen = false;
-}
->>>>>>> d513ee48b3eef0f995171c7e50cad379c0803c95
