@@ -68,7 +68,7 @@ function deleteMovie(id) {
     console.log('delete', id);
     fetch(`${url}/${id}`, { method: 'DELETE' })
         .then((result) => {
-            showMessage("Filmen är borttagen!", 'success'); // Visa meddelande om att filmen är borttagen
+            showMessage("Filmen är borttagen!", 'success', 10000); // Visa meddelande om att filmen är borttagen
             fetchData(); // Uppdatera filmdata efter borttagning
         })
         .catch((error) => {
@@ -102,7 +102,7 @@ function handleSubmit(e) {
 
     fetch(request)
         .then((response) => {
-            showMessage(serverMovieObject.id ? "Filmen är uppdaterad!" : "Filmen är skapad!", 'success');
+            showMessage(serverMovieObject.id ? "Filmen är uppdaterad!" : "Filmen är skapad!", 'success', 10000);
             fetchData();
             localStorage.removeItem("currentId");
             movieForm.reset();
@@ -112,7 +112,7 @@ function handleSubmit(e) {
         });
 }
 
-function showMessage(message, messageType, duration = 15000) {
+function showMessage(message, messageType, duration = 5000) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
