@@ -55,15 +55,18 @@ function setCurrentMovie(id) {
         });
 }
 // Funktion för att ta bort en film, går efter ID.
+
 function deleteMovie(id) {
     console.log('delete', id);
     fetch(`${url}/${id}`, { method: 'DELETE' })
         .then((result) => {
-            messageFunction("Filmen är borttagen!", 'warning');
-            fetchData(); // Anropa fetchData() eller motsvarande funktion för att uppdatera filmdata efter borttagning.
+            showMessage("Filmen är borttagen!", 'success'); // Visa meddelande om att filmen är borttagen
+            fetchData(); // Uppdatera filmdata efter borttagning
+        })
+        .catch((error) => {
+            showMessage("Ett fel uppstod vid borttagning av filmen.", 'error'); // Visa felmeddelande om något går fel
         });
 }
-
 
 
 
@@ -106,27 +109,28 @@ function handleSubmit(e) {
         movieForm.reset();
     });
 }
-function showMessage(message, messageType) {
+
+function showMessage(message, messageType, duration = 20000) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
-    // Uppdatera meddelandetexten i rutan
     messageBox.textContent = message;
-
-    // Visa modalfönstret
     modal.classList.remove('hidden');
     
-    // Ange olika färger beroende på meddelandetypen (ex. 'success', 'error', 'warning', etc.)
     if (messageType === 'success') {
-        messageBox.classList.remove('text-red-500'); // Ta bort tidigare färgklasser
-        messageBox.classList.add('text-green-500'); // Lägg till klass för framgångsmeddelanden
+        messageBox.classList.remove('text-red-500');
+        messageBox.classList.add('text-green-500');
     } else if (messageType === 'error') {
         messageBox.classList.remove('text-green-500');
         messageBox.classList.add('text-red-500');
     } else {
-        // Om ingen specifik typ anges, återställ till standardfärg
         messageBox.classList.remove('text-red-500', 'text-green-500');
     }
+
+    setTimeout(() => {
+        modal.classList.add('hidden'); // Dölj rutan efter en viss tid (standard: 3000 ms)
+    }, duration);
 }
+
 
 
