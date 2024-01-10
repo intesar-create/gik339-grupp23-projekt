@@ -104,6 +104,7 @@ function handleSubmit(e) {
     });
 }
 
+<<<<<<< HEAD
 function showMessage(message, messageType) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
@@ -126,3 +127,6 @@ function showMessage(message, messageType) {
         messageBox.classList.remove('text-red-500', 'text-green-500');
     }
 }
+=======
+
+>>>>>>> cab94859fda020efb8cec9ddfd1e309e6992f1ad
