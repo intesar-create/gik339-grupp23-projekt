@@ -40,7 +40,13 @@ function fetchData() {
 function setCurrentMovie(id) {
     console.log("current", id);
     fetch(`${url}/${id}`)
-        .then((result) => result.json())
+        .then((result) => {
+            if (!result.ok) {
+                showMessage("Det gick inte att hämta filmen.", 'error');
+                throw new Error('Network response was not ok');
+            }
+            return result.json();
+        })
         .then((movie) => {
             console.log(movie);
             movieForm.titel.value = movie.titel;
@@ -49,18 +55,20 @@ function setCurrentMovie(id) {
             movieForm.color.value = movie.color;
 
             localStorage.setItem("currentId", movie.id);
+            showMessage("Filmuppgifterna har hämtats!", 'success');
         })
         .catch((error) => {
             showMessage("Det gick inte att hämta filmen.", 'error');
         });
 }
+
 // Funktion för att ta bort en film, går efter ID.
 
 function deleteMovie(id) {
     console.log('delete', id);
     fetch(`${url}/${id}`, { method: 'DELETE' })
         .then((result) => {
-            showMessage("Filmen är borttagen!", 'success'); // Visa meddelande om att filmen är borttagen
+            showMessage("Filmen är borttagen!", 'success', 5000); // Visa meddelande om att filmen är borttagen
             fetchData(); // Uppdatera filmdata efter borttagning
         })
         .catch((error) => {
@@ -75,23 +83,16 @@ movieForm.addEventListener('submit', handleSubmit);
 function handleSubmit(e) {
     e.preventDefault();
     const serverMovieObject = {
-        titel: '',
-        dirctor: '',
-        release_date: '',
-        color: ''
+        titel: movieForm.titel.value,
+        dirctor: movieForm.dirctor.value,
+        release_date: movieForm.release_date.value,
+        color: movieForm.color.value
     };
-    serverMovieObject.titel = movieForm.titel.value;
-    serverMovieObject.dirctor = movieForm.dirctor.value;
-    serverMovieObject.release_date = movieForm.release_date.value;
-    serverMovieObject.color = movieForm.color.value;
 
     const id = localStorage.getItem("currentId");
     if (id) serverMovieObject.id = id;
 
-
-
     const request = new Request(url, {
-
         method: serverMovieObject.id ? 'PUT' : 'POST',
         headers: {
             'content-type': 'application/json'
@@ -99,18 +100,19 @@ function handleSubmit(e) {
         body: JSON.stringify(serverMovieObject)
     });
 
-
-
-
-
-    fetch(request).then((response) => {
-        fetchData();
-        localStorage.removeItem("currentId");
-        movieForm.reset();
-    });
+    fetch(request)
+        .then((response) => {
+            showMessage(serverMovieObject.id ? "Filmen är uppdaterad!" : "Filmen är skapad!", 'success', 5000);
+            fetchData();
+            localStorage.removeItem("currentId");
+            movieForm.reset();
+        })
+        .catch((error) => {
+            showMessage("Ett fel uppstod vid hantering av filmen.", 'error');
+        });
 }
 
-function showMessage(message, messageType, duration = 20000) {
+function showMessage(message, messageType, duration = 5000) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
@@ -128,9 +130,7 @@ function showMessage(message, messageType, duration = 20000) {
     }
 
     setTimeout(() => {
-        modal.classList.add('hidden'); // Dölj rutan efter en viss tid (standard: 3000 ms)
+        modal.classList.add('hidden');
     }, duration);
 }
-
-
 
