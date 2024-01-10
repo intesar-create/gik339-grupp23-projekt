@@ -55,7 +55,7 @@ function setCurrentMovie(id) {
             movieForm.color.value = movie.color;
 
             localStorage.setItem("currentId", movie.id);
-            showMessage("Filmuppgifterna har hämtats!", 'success');
+            //showMessage("Filmuppgifterna har hämtats!", 'success');
         })
         .catch((error) => {
             showMessage("Det gick inte att hämta filmen.", 'error');
@@ -118,7 +118,7 @@ function showMessage(message, messageType, duration = 5000) {
 
     messageBox.textContent = message;
     modal.classList.remove('hidden');
-    
+
     if (messageType === 'success') {
         messageBox.classList.remove('text-red-500');
         messageBox.classList.add('text-green-500');
