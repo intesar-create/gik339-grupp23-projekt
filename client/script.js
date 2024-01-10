@@ -104,3 +104,12 @@ function handleSubmit(e) {
     });
 }
 
+function showPopupModal() {
+    const popupModal = document.getElementById('popup-modal');
+    popupModal.classList.remove('hidden');
+
+    // Eventuella ytterligare åtgärder eller uppdateringar här
+    console.log("Meddelanderutan visas");
+}
+
+
