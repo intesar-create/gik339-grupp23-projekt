@@ -104,3 +104,25 @@ function handleSubmit(e) {
     });
 }
 
+function showMessage(message, messageType) {
+    const modal = document.getElementById('popup-modal');
+    const messageBox = modal.querySelector('.text-gray-500');
+
+    // Uppdatera meddelandetexten i rutan
+    messageBox.textContent = message;
+
+    // Visa modalfönstret
+    modal.classList.remove('hidden');
+    
+    // Ange olika färger beroende på meddelandetypen (ex. 'success', 'error', 'warning', etc.)
+    if (messageType === 'success') {
+        messageBox.classList.remove('text-red-500'); // Ta bort tidigare färgklasser
+        messageBox.classList.add('text-green-500'); // Lägg till klass för framgångsmeddelanden
+    } else if (messageType === 'error') {
+        messageBox.classList.remove('text-green-500');
+        messageBox.classList.add('text-red-500');
+    } else {
+        // Om ingen specifik typ anges, återställ till standardfärg
+        messageBox.classList.remove('text-red-500', 'text-green-500');
+    }
+}
