@@ -112,7 +112,7 @@ function handleSubmit(e) {
         });
 }
 
-function showMessage(message, messageType, duration = 20000) {
+function showMessage(message, messageType, duration = 30000) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
