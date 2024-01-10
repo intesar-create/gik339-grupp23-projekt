@@ -118,12 +118,7 @@ function showMessage(message, messageType, duration = 5000) {
 
     messageBox.textContent = message;
     modal.classList.remove('hidden');
-<<<<<<< HEAD
-
-    // Ange olika färger beroende på meddelandetypen (ex. 'success', 'error', 'warning', etc.)
-=======
-
->>>>>>> 0b38f935d8cb8d09fea20dc9e7d6af3a40d0dd99
+    
     if (messageType === 'success') {
         messageBox.classList.remove('text-red-500');
         messageBox.classList.add('text-green-500');
