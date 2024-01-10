@@ -104,13 +104,3 @@ function handleSubmit(e) {
     });
 }
 
-//Funktion SweetAlert för att visa upp när en resurs ändras på något sätt.
-
-function messageFunction(message, type) {
-    Swal.fire({
-        icon: type,
-        title: message,
-        showConfirmButton: false,
-        timer: 2000 // Tid i millisekunder (justera efter behov)
-    });
-}
