@@ -36,6 +36,10 @@ function fetchData() {
             }
         });
 }
+
+
+//Intisar börjar här
+
 // när vi klickar på "Ändra" knappen så blir alla fält ifyllda .
 function setCurrentMovie(id) {
     console.log("current", id);
@@ -77,6 +81,7 @@ function deleteMovie(id) {
 }
 
 
+//Safiyo börjar här
 
 movieForm.addEventListener('submit', handleSubmit);
 
