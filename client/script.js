@@ -103,28 +103,4 @@ function handleSubmit(e) {
         movieForm.reset();
     });
 }
-document.addEventListener('DOMContentLoaded', function () {
-    // Hämta referenser till relevanta element
-    const modal = document.getElementById('popup-modal');
-    const showButton = document.getElementById('show-modal-button');
-    const yesButton = modal.querySelector('[data-modal-hide="popup-modal"]');
-    const noButton = modal.querySelector('[data-modal-hide="popup-modal"]');
-
-    // Funktion för att visa modalen
-    function showModal() {
-        modal.classList.remove('hidden');
-    }
-
-    // Funktion för att dölja modalen
-    function hideModal() {
-        modal.classList.add('hidden');
-    }
-
-    // Visa modal när knappen klickas
-    showButton.addEventListener('click', showModal);
-
-    // Dölj modal när "Yes" eller "No" knapp klickas
-    yesButton.addEventListener('click', hideModal);
-    noButton.addEventListener('click', hideModal);
-});
 
