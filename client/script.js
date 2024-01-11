@@ -101,7 +101,7 @@ function handleSubmit(e) {
         color: movieForm.color.value
     };
 
-    const id = localStorage.getItem("currentId");  
+    const id = localStorage.getItem("currentId");
     //filminformation beroende på om ett ID .
     if (id) serverMovieObject.id = id;
 
@@ -124,18 +124,19 @@ function handleSubmit(e) {
             localStorage.removeItem("currentId");// Rensa localStorage och återställ formuläret
             movieForm.reset();
         })
-        .catch((error) => {                                                     
+        .catch((error) => {
             showMessage("Ett fel uppstod vid hantering av filmen.", 'error');// Visa felmeddelande om något går fel vid hantering av filmen
         });
 }
 // Funktion för att visa meddelanden i en popup-modal
+function showMessage(message, messageType) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
     messageBox.textContent = message;
     modal.classList.remove('hidden');
 
-   
+
     if (messageType === 'success') {
         messageBox.classList.remove('text-red-500');
         messageBox.classList.add('text-green-500');
