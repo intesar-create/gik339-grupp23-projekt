@@ -1,3 +1,4 @@
+//Safiyo börjar här
 const sqlite = require('sqlite3').verbose();
 const db = new sqlite.Database('./gik339-projekt.db');
 
@@ -59,6 +60,8 @@ server.post('/movies', (req, res) => {
     });
 });
 
+
+//Intisar börjar här
 server.put('/movies', (req, res) => {
     const bodyData = req.body;
 
