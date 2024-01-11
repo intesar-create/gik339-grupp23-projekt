@@ -129,12 +129,6 @@ function handleSubmit(e) {
         });
 }
 // Funktion för att visa meddelanden i en popup-modal
-<<<<<<< HEAD
-
-function showMessage(message, messageType, duration = 30000) {
-=======
-function showMessage(message, messageType) {
->>>>>>> 0b4fa4d6520930d9dcba5df3d4a31b3fbc4d4465
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
