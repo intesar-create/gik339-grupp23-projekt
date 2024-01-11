@@ -21,8 +21,8 @@ server.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
 });
 
-//Safiyo börjar här
-//Hämtar alla filmer från databasen.
+
+//Hämtar alla filmer från databasen.     
 server.get('/movies', (req, res) => {
     const sql = 'SELECT * FROM movies';
 
@@ -35,7 +35,7 @@ server.get('/movies', (req, res) => {
     });
 });
 
-//Hämtar en specifik film baserad på ID.
+// Hämtar filmens ID från begäran.
 server.get('/movies/:id', (req, res) => {
     const id = req.params.id;
 
