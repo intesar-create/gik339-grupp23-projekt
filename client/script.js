@@ -129,7 +129,7 @@ function handleSubmit(e) {
 }
 
 // Funktion för att visa meddelanden i en popup-modal
-function showMessage(message, messageType, duration = 300000) {
+function showMessage(message, messageType) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
@@ -149,7 +149,7 @@ function showMessage(message, messageType, duration = 300000) {
 
     setTimeout(() => {
         modal.classList.add('hidden');
-    }, duration);
+    }, 5000);
 
 
 }
