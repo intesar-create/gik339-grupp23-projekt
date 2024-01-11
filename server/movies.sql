@@ -14,4 +14,5 @@ INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (5,'Finding Nemo'
 INSERT INTO movies(id,titel,dirctor,release_date,color) VALUES (6,'Inside out','Pete Docter, Ronnie Del Carmen',2015,'green');
 
 
+
 select * from movies;
