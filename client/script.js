@@ -150,7 +150,5 @@ function showMessage(message, messageType) {
     setTimeout(() => {
         modal.classList.add('hidden');
     }, 2000);
-
-
 }
 
