@@ -1,9 +1,10 @@
 
 const sqlite = require('sqlite3').verbose();
+// Här skapas en databasanslutning till en SQLite-databas med filvägen
 const db = new sqlite.Database('./gik339-projekt.db');
 
-const express = require('express');
-const server = express();
+const express = require('express');//Importerar Express.js-modulen.
+const server = express();//Skapar en instans av Express.js-servern.
 
 server
     .use(express.json())
