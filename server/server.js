@@ -86,7 +86,7 @@ server.put('/movies', (req, res) => {
             res.send('Filmen uppdaterades');
         }
     });
-    //UPDATE users SET firstName="Mikaela",lastName="Hedberg" WHERE id=1
+
 });
 
 server.delete('/movies/:id', (req, res) => {
