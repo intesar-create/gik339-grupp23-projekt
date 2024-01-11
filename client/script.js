@@ -129,7 +129,7 @@ function handleSubmit(e) {
 }
 
 // Funktion för att visa meddelanden i en popup-modal
-function showMessage(message, messageType, duration = 30000) {
+function showMessage(message, messageType, duration = 300000) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
 
