@@ -150,10 +150,14 @@ function showMessage(message, messageType) {
     setTimeout(() => {
         modal.classList.add('hidden');
 <<<<<<< HEAD
+<<<<<<< HEAD
     }, 2000);
 =======
     }, 10000);
 >>>>>>> 564bc336dc73d5359f0942dda82c926884a84e18
+=======
+    }, 200);
+>>>>>>> fe757dc4b33c00886d051a9a58f8aded5d3da621
 
 
 }
