@@ -149,7 +149,7 @@ function showMessage(message, messageType) {
 
     setTimeout(() => {
         modal.classList.add('hidden');
-    }, 5000);
+    }, 10000);
 
 
 }
