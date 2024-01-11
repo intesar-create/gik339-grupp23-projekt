@@ -88,8 +88,8 @@ function deleteMovie(id) {
 }
 
 
-//Safiyo börjar här
-// Funktion för att skicka in eller uppdatera filminformation
+
+// Funktion för att skicka in eller uppdatera filminformation 
 movieForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
@@ -101,7 +101,8 @@ function handleSubmit(e) {
         color: movieForm.color.value
     };
 
-    const id = localStorage.getItem("currentId");
+    const id = localStorage.getItem("currentId");  
+    //filminformation beroende på om ett ID .
     if (id) serverMovieObject.id = id;
 
     // Skapa en Request för att skicka data till servern
@@ -119,16 +120,16 @@ function handleSubmit(e) {
             // Visa meddelande om att filmen är skapad eller uppdaterad
             showMessage(serverMovieObject.id ? "Filmen är uppdaterad!" : "Filmen är skapad!", 'success');
 
-            fetchData();// Uppdatera filmdata
+            fetchData();// Uppdatera filmdata      
             localStorage.removeItem("currentId");// Rensa localStorage och återställ formuläret
             movieForm.reset();
         })
-        .catch((error) => {
+        .catch((error) => {                                                     
             showMessage("Ett fel uppstod vid hantering av filmen.", 'error');// Visa felmeddelande om något går fel vid hantering av filmen
         });
 }
-
 // Funktion för att visa meddelanden i en popup-modal
+
 function showMessage(message, messageType, duration = 30000) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
@@ -136,7 +137,7 @@ function showMessage(message, messageType, duration = 30000) {
     messageBox.textContent = message;
     modal.classList.remove('hidden');
 
-    // Ändra färgen på meddelandet beroende på typ av meddelande
+   
     if (messageType === 'success') {
         messageBox.classList.remove('text-red-500');
         messageBox.classList.add('text-green-500');
