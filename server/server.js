@@ -1,4 +1,4 @@
-//Safiyo börjar här
+
 const sqlite = require('sqlite3').verbose();
 const db = new sqlite.Database('./gik339-projekt.db');
 
@@ -15,12 +15,12 @@ server
 
         next();
     });
-
 //Startar servern och lyssnar på port 3000.
 server.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
 });
 
+//Safiyo börjar här
 //Hämtar alla filmer från databasen.
 server.get('/movies', (req, res) => {
     const sql = 'SELECT * FROM movies';
