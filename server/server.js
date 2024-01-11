@@ -16,10 +16,12 @@ server
         next();
     });
 
+//Startar servern och lyssnar på port 3000.
 server.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
 });
 
+//Hämtar alla filmer från databasen.
 server.get('/movies', (req, res) => {
     const sql = 'SELECT * FROM movies';
 
@@ -32,6 +34,7 @@ server.get('/movies', (req, res) => {
     });
 });
 
+//Hämtar en specifik film baserad på ID.
 server.get('/movies/:id', (req, res) => {
     const id = req.params.id;
 
@@ -46,6 +49,7 @@ server.get('/movies/:id', (req, res) => {
     });
 });
 
+//Lägger till en ny film i databasen.
 server.post('/movies', (req, res) => {
     const movie = req.body;
     const sql = `INSERT INTO movies(titel,dirctor , release_date, color) VALUES (?,?,?,?)`;
@@ -62,6 +66,7 @@ server.post('/movies', (req, res) => {
 
 
 //Intisar börjar här
+//Uppdaterar en befintlig film i databasen.
 server.put('/movies', (req, res) => {
     const bodyData = req.body;
 
@@ -92,6 +97,7 @@ server.put('/movies', (req, res) => {
 
 });
 
+//Tar bort en film baserad på ID.
 server.delete('/movies/:id', (req, res) => {
     const id = req.params.id;
     const sql = `DELETE FROM movies WHERE id = ${id}`;
