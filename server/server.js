@@ -71,6 +71,7 @@ server.post('/movies', (req, res) => {
 server.put('/movies', (req, res) => {
     const bodyData = req.body;
 
+    // Extrahera ID och filmdata från förfrågan
     const id = bodyData.id;
     const movie = {
         titel: bodyData.titel,
@@ -78,21 +79,22 @@ server.put('/movies', (req, res) => {
         release_date: bodyData.release_date,
         color: bodyData.color
     };
-
+    // Skapa en sträng för att uppdatera filmens egenskaper i databasen
     let updateString = '';
     const columnsArray = Object.keys(movie);
     columnsArray.forEach((column, i) => {
         updateString += `${column}="${movie[column]}"`;
         if (i !== columnsArray.length - 1) updateString += ',';
     });
-    const sql = `UPDATE movies SET ${updateString} WHERE id=${id}`;
+    const sql = `UPDATE movies SET ${updateString} WHERE id=${id}`;// SQL-förfrågan för att uppdatera filmen i databasen
 
+    // Kör SQL-förfrågan på databasen
     db.run(sql, (err) => {
         if (err) {
             console.log(err);
             res.status(500).send(err);
         } else {
-            res.send('Filmen uppdaterades');
+            res.send('Filmen uppdaterades');// Skickar ett bekräftelsemeddelande om att filmen har uppdaterats
         }
     });
 
@@ -101,14 +103,15 @@ server.put('/movies', (req, res) => {
 //Tar bort en film baserad på ID.
 server.delete('/movies/:id', (req, res) => {
     const id = req.params.id;
-    const sql = `DELETE FROM movies WHERE id = ${id}`;
+    const sql = `DELETE FROM movies WHERE id = ${id}`;// SQL-förfrågan för att ta bort filmen från databasen
 
+    // Kör SQL-förfrågan på databasen
     db.run(sql, (err) => {
         if (err) {
             console.log(err);
             res.status(500).send(err);
         } else {
-            res.send('Filmen borttagen');
+            res.send('Filmen borttagen');// Skickar ett bekräftelsemeddelande om att filmen har tagits bort
         }
     });
 });
