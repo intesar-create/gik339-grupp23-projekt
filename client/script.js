@@ -64,7 +64,7 @@ function setCurrentMovie(id) {
             movieForm.color.value = movie.color;
 
             localStorage.setItem("currentId", movie.id);
-
+            //showMessage("Filmuppgifterna har hämtats!", 'success');
         })
         .catch((error) => {
             showMessage("Det gick inte att hämta filmen.", 'error');
@@ -149,7 +149,7 @@ function showMessage(message, messageType) {
 
     setTimeout(() => {
         modal.classList.add('hidden');
-    }, 200);
+    }, 2000);
 
 
 }
