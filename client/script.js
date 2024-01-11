@@ -1,12 +1,15 @@
 const url = 'http://localhost:3000/movies';
 
+// Ladda in filmdata när sidan laddas
 window.addEventListener('load', fetchData);
 
 function fetchData() {
+    // Hämta filmdata från servern
     fetch(url)
         .then((result) => result.json())
         .then((movies) => {
             if (movies.length > 0) {
+                // Skapa HTML för att visa filmerna på sidan
                 let html = `<ul class="w-3/4 my-3 mx-auto flex flex-wrap gap-2 justify-center">`;
                 movies.forEach((movie) => {
                     html += `
@@ -30,6 +33,7 @@ function fetchData() {
                 });
                 html += `</ul>`;
 
+                // Uppdatera gränssnittet med filmerna
                 const listContainer = document.getElementById('listContainer');
                 listContainer.innerHTML = '';
                 listContainer.insertAdjacentHTML('beforeend', html);
@@ -40,7 +44,7 @@ function fetchData() {
 
 //Intisar börjar här
 
-// när vi klickar på "Ändra" knappen så blir alla fält ifyllda .
+// Funktion för att sätta aktuell film baserat på ID och fylla i formuläret
 function setCurrentMovie(id) {
     console.log("current", id);
     fetch(`${url}/${id}`)
@@ -53,6 +57,7 @@ function setCurrentMovie(id) {
         })
         .then((movie) => {
             console.log(movie);
+            // Fyll i formuläret med filmens information
             movieForm.titel.value = movie.titel;
             movieForm.dirctor.value = movie.dirctor;
             movieForm.release_date.value = movie.release_date;
@@ -66,10 +71,12 @@ function setCurrentMovie(id) {
         });
 }
 
-// Funktion för att ta bort en film, går efter ID.
 
+
+// Funktion för att ta bort en film baserat på ID
 function deleteMovie(id) {
     console.log('delete', id);
+    // Skicka förfrågan till servern för att ta bort filmen
     fetch(`${url}/${id}`, { method: 'DELETE' })
         .then((result) => {
             showMessage("Filmen är borttagen!", 'success'); // Visa meddelande om att filmen är borttagen
@@ -82,7 +89,7 @@ function deleteMovie(id) {
 
 
 //Safiyo börjar här
-
+// Funktion för att skicka in eller uppdatera filminformation
 movieForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
@@ -97,6 +104,7 @@ function handleSubmit(e) {
     const id = localStorage.getItem("currentId");
     if (id) serverMovieObject.id = id;
 
+    // Skapa en Request för att skicka data till servern
     const request = new Request(url, {
         method: serverMovieObject.id ? 'PUT' : 'POST',
         headers: {
@@ -105,18 +113,22 @@ function handleSubmit(e) {
         body: JSON.stringify(serverMovieObject)
     });
 
+    // Skicka förfrågan till servern för att skicka in eller uppdatera filmen
     fetch(request)
         .then((response) => {
+            // Visa meddelande om att filmen är skapad eller uppdaterad
             showMessage(serverMovieObject.id ? "Filmen är uppdaterad!" : "Filmen är skapad!", 'success');
-            fetchData();
-            localStorage.removeItem("currentId");
+
+            fetchData();// Uppdatera filmdata
+            localStorage.removeItem("currentId");// Rensa localStorage och återställ formuläret
             movieForm.reset();
         })
         .catch((error) => {
-            showMessage("Ett fel uppstod vid hantering av filmen.", 'error');
+            showMessage("Ett fel uppstod vid hantering av filmen.", 'error');// Visa felmeddelande om något går fel vid hantering av filmen
         });
 }
 
+// Funktion för att visa meddelanden i en popup-modal
 function showMessage(message, messageType, duration = 30000) {
     const modal = document.getElementById('popup-modal');
     const messageBox = modal.querySelector('.text-gray-500');
@@ -124,6 +136,7 @@ function showMessage(message, messageType, duration = 30000) {
     messageBox.textContent = message;
     modal.classList.remove('hidden');
 
+    // Ändra färgen på meddelandet beroende på typ av meddelande
     if (messageType === 'success') {
         messageBox.classList.remove('text-red-500');
         messageBox.classList.add('text-green-500');
